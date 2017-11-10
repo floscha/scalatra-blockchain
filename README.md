@@ -2,8 +2,9 @@
 
 ## Build & Run
 
+The easiest way to run is to build the Docker image using sbt:
 ```
-$ docker build -t scalatra-blockchain .
+$ sbt docker:publishLocal
 ```
 
-Blockchain is not thread-safe!
+Then just run the Docker image as usual, exposing port 8080.
