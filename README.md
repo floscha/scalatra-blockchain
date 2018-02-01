@@ -33,3 +33,32 @@ Once the Docker image has been built, it can easily be run on port 8080 like so:
 ```
 $ docker run -p 8080:8080 scalatra-blockchain
 ```
+
+
+## End-to-End Tests
+
+Rather than testing the blockchain manually by making HTTP calls using CURL or Postman like in the blog post, end-to-end tests can also be done automated using [this Python script](https://github.com/floscha/blockchain-end2end-test/blob/master/end2end_test.py).
+
+To run the tests, simply following these steps:
+
+1. Make sure the docker image has been built as described in the previous section.
+
+2. Clone the test script from its repository and navigate to the folder:
+
+```
+$ git clone https://github.com/floscha/blockchain-end2end-test
+$ cd blockchain-end2end-test
+```
+3. Install the required dependencies:
+
+```
+$ pip install -r requirements.txt
+```
+
+4. Run the test script as follows:
+
+```
+$ python end2end_test.py --nodes 10 --tasks clean setup connect sync-test
+```
+
+More details on how the script works can be found [here](https://github.com/floscha/blockchain-end2end-test/blob/master/README.md).
